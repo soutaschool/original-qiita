@@ -1,0 +1,38 @@
+<div class="col-md-offset-3 col-md-6">
+<h1 class="big-log">Qittaへようこそ！</h1>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <%= f.text_field :name, placeholder: 'ユーザー名',
+     aria_label: 'ユーザー名', class: 'col-md-12 field title' %>
+  <div class="field">
+    <%= f.email_field :email, placeholder: 'メールアドレス',
+    aria_label: 'メールアドレス', class: 'col-md-12 field title' %>
+  </div>
+
+  <h5>公開メールアドレス</h5> 
+        <%= f.check_box :check_email %>メールアドレスをメールアドレスを全体に公開する <br>
+        （誰もがあなたのメールアドレスを閲覧できるようになります）
+        <h5>サイト/ブログ</h5>
+        <%= f.text_field :site, class: 'col-md-12 title' %>
+        <h5>所属している組織・会社</h5>
+        <%= f.text_field :company, class: 'col-md-12 title' %>
+        <h5>移住地</h5>
+        <%= f.text_field :from, class: 'col-md-12 title' %>
+
+  <div class="field">
+    <%= f.password_field :password, placeholder: 'パスワード',
+    aria_label: 'パスワード', class: 'col-md-12 field title'  %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, placeholder: 'パスワードもう一回！',
+    aria_label: 'パスワードもう一回！', class: 'col-md-12 field title'%>
+  </div>
+
+  <div class="actions" style="text-align: center;">
+    <%= f.submit "利用規約に同意して登録", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+

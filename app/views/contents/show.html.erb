@@ -1,0 +1,62 @@
+<div class ="col-md-1">
+いいねなど
+</div>
+
+<div class ="col-md-8">
+<%= link_to '編集する', edit_content_path(@content), class: 'glyphicon glyphicon-pencil' %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">メニュー1</a></li>
+            <li><a href="#">メニュー2</a></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to '削除', @content, method: :delete, data: { confirm: '本当に消しますか？' } %></li>
+          </ul>
+        </li>
+<h1><strong class="big-title"><%= @content.title %></strong></h1>
+<h3><span class="label label-default"><%= @content.tag %></span></h3>
+<br>
+<%= @content.body %>
+</div>
+
+<li>
+  <i class="fa fa-comment"></i>
+  <a href="#comments"><%= @content.comments.count %></a>
+</li>
+
+<div class="comment-list bt style-2" id="comments">
+    <div class="float-wrapper">
+        <h2 class="comment-count"><%= @content.comments.count %>件コメント</h2>
+    </div>
+
+<ol>
+    <% @content.comments.each do |comment| %>
+        <li class="comment">
+            <div class="comment-body bb">
+                <div class="comment-avatar">
+                    <div class="avatar">
+                        <%= image_tag('sample-author1.jpg', style: "width: 60px; height: 60px;") %>
+                    </div>
+                </div>
+                <div class="comment-text">
+                    <div class="comment-author clearfix">
+                        <a href="#" class="link-author"><%= comment.user.name %></a>
+                        <span class="comment-meta">
+                          <span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+                        </span>
+                    </div>
+                    <div class="comment-entry"><%= comment.comment %></div>
+                </div>
+            </div>
+        </li>
+    <% end %>
+</ol>
+
+<%= form_for [@content, @comment] do |f| %>
+    <div class="row">
+        <div class="col-sm-12">
+            <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+        </div>
+    </div>
+    <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+<% end %>

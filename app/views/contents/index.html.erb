@@ -1,0 +1,31 @@
+<div class="col-md-2">
+<ul class="list-group">
+	<li class="list-group-item"><strong><span class="glyphicon glyphicon-check" aria-hidden="true"></span> トレンド</strong></li>
+	<li class="list-group-item"><strong><span class="glyphicon glyphicon-list" aria-hidden="true"></span> タイムライン</strong></li>
+	<li class="list-group-item"><strong><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> タグフィールド</strong></li>
+    <li class="list-group-item"><strong><span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span> マイルストーン</strong></li>
+</ul>
+</div>
+<div class="col-md-7">
+<h5>トレンド<div style='color: #aaa;'>最近人気の記事を毎日5時/17時に更新</div></h5>
+<table class='table table-hover table-inverse'>
+  <tbody>
+    <% @contents.each do |content| %>
+      <tr>
+        <td>
+        <%= link_to(content) do %> 
+        <%# <%= attachment_image_tag(article.user, :profile_image, fallback: 'qiita.jpeg', size:'50x50') %> %>
+        <%= content.title %> (<%= content.created_at %>)
+        <span style="color: #aaa;">by <%= content.user.name %></span> <br>
+        <%= link_to "#{content.comments.count} コメント", content_path(content.id) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<div class="col-md-3">
+
+</div>
