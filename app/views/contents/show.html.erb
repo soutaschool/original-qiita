@@ -1,5 +1,19 @@
 <div class ="col-md-1">
-いいねなど
+<% if @content.favorited_by?(current_user) %>
+  <li>
+    <%= link_to content_favorites_path(@content), method: :delete do %>
+      <i class="glyphicon glyphicon-heart" style='color: pink;'></i>
+      <%= @content.favorites.count %> いいね
+    <% end %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to content_favorites_path(@content), method: :post do %>
+      <i class="glyphicon glyphicon-heart" style='color: pink;'></i>
+      <%= @content.favorites.count %> いいね
+    <% end %>
+  </li>
+<% end %>
 </div>
 
 <div class ="col-md-8">
@@ -35,7 +49,7 @@
             <div class="comment-body bb">
                 <div class="comment-avatar">
                     <div class="avatar">
-                        <%= image_tag('sample-author1.jpg', style: "width: 60px; height: 60px;") %>
+                        <%# <%= image_tag('sample-author1.jpg', style: "width: 60px; height: 60px;") %> %>
                     </div>
                 </div>
                 <div class="comment-text">
@@ -60,3 +74,4 @@
     </div>
     <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
 <% end %>
+

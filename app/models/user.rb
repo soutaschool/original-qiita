@@ -6,4 +6,5 @@ class User < ApplicationRecord
         # ユーザー名
          has_many :contents, dependent: :destroy
          has_many :comments, dependent: :destroy
+         has_many :favorites, dependent: :destroy
 end
