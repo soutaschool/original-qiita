@@ -12,8 +12,9 @@ Qiitaに登録しているユーザーの一覧です。<br>
         <%= link_to(user) do %> 
         <%= attachment_image_tag(user, :profile_image, fallback: 'qiita.jpeg', size:'50x50') %>
         <%= user.name %> <br>
+        <% end %>
         <%= user.introduction %>
-          <% end %>
+          
         </td>
       </tr>
     <% end %>
