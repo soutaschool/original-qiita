@@ -9,7 +9,8 @@ class ContentsController < ApplicationController
         redirect_to contents_path
     end
     def index
-        @contents = Content.all
+        # カミナリの実装をするので以下の変数に変える
+        @contents = Content.page(params[:page]).reverse_order
     end
     def show
         @content = Content.find(params[:id])
