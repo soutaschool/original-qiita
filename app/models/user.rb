@@ -7,4 +7,6 @@ class User < ApplicationRecord
          has_many :contents, dependent: :destroy
          has_many :comments, dependent: :destroy
          has_many :favorites, dependent: :destroy
+        # ユーザーの写真を使用するもの
+         attachment :profile_image
 end
