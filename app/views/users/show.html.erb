@@ -8,7 +8,9 @@
 <% end %>
 <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> <%= @user.company %> <br>
 <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> <%= @user.from %> <br>
+<% if @user.id == current_user.id %>
 <%= link_to 'プロフィールを編集する', edit_user_path, class: 'glyphicon glyphicon-cog' %>
+<% end %>
 <% end %>
 
 </div>
