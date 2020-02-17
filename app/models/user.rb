@@ -9,4 +9,8 @@ class User < ApplicationRecord
          has_many :favorites, dependent: :destroy
         # ユーザーの写真を使用するもの
          attachment :profile_image
+
+          validates :name, presence: true
+          validates :email, presence: true
+          validates :password, presence: true
 end

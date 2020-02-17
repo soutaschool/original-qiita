@@ -11,3 +11,4 @@ class Content < ApplicationRecord
     end
     # user.idがfavoriteに存在するかどうか
 end
+

@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    models:
+      content: 投稿内容
+    attributes:
+      content:
+        title: タイトル
+        tag: 関連するタグ
+        body: 本文
+        
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        password: パスワード
+        email: メールアドレス
+        password_confirmation: 確認のパスワード
