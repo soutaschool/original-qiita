@@ -20,6 +20,12 @@ class ContentsController < ApplicationController
         @comment = Comment.new
     end
 
+    def destroy
+        @content = Content.find(params[:id])
+        @content.destroy
+        redirect_to contents_path
+    end
+
     private
     def content_params
         params.require(:content).permit(:title, :tag, :body)
