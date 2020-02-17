@@ -5,8 +5,11 @@ class ContentsController < ApplicationController
     def create
         @content = Content.new(content_params)
         @content.user_id = current_user.id
-        @content.save
+        if @content.save
         redirect_to contents_path
+        else 
+        render 'new'
+        end
     end
     def index
         # カミナリの実装をするので以下の変数に変える
