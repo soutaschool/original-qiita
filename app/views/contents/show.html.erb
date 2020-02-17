@@ -1,22 +1,18 @@
 <div class ="col-md-1">
-<% if @content.favorited_by?(current_user) %>
-  <li>
+<% if @content.favorited_by?(current_user) %> 
     <%= link_to content_favorites_path(@content), method: :delete do %>
-      <i class="glyphicon glyphicon-heart" style='color: pink;'></i>
-      <%= @content.favorites.count %> いいね
+      <i class="glyphicon glyphicon-heart" style='color: pink; font-size: 40px;'></i> <br>
+      <span style="font-size: 20px;"><%= @content.favorites.count  %></span> いいね
     <% end %>
-  </li>
 <% else %>
-  <li>
     <%= link_to content_favorites_path(@content), method: :post do %>
-      <i class="glyphicon glyphicon-heart" style='color: pink;'></i>
-      <%= @content.favorites.count %> いいね
+      <i class="glyphicon glyphicon-heart" style='color: pink; font-size: 40px;'></i> <br>
+      <span style="font-size: 20px;"><%= @content.favorites.count  %></span> いいね
     <% end %>
-  </li>
 <% end %>
 </div>
 
-<div class ="col-md-8">
+<div class ="col-md-7">
 <% if @content.user == current_user %>
 <%= link_to '編集する', edit_content_path(@content), class: 'glyphicon glyphicon-pencil' %>
         <li class="dropdown">
@@ -35,11 +31,7 @@
 <%= @content.body %>
 </div>
 
-<li>
-  <i class="fa fa-comment"></i>
-  <a href="#comments"><%= @content.comments.count %></a>
-</li>
-
+<div class = 'col-md-4'>
 <div class="comment-list bt style-2" id="comments">
     <div class="float-wrapper">
         <h2 class="comment-count"><%= @content.comments.count %>件コメント</h2>
@@ -47,16 +39,13 @@
 
 <ol>
     <% @content.comments.each do |comment| %>
-        <li class="comment">
+        <li>
             <div class="comment-body bb">
-                <div class="comment-avatar">
-                    <div class="avatar">
-                        <%# <%= image_tag('sample-author1.jpg', style: "width: 60px; height: 60px;") %> %>
-                    </div>
-                </div>
                 <div class="comment-text">
                     <div class="comment-author clearfix">
-                        <a href="#" class="link-author"><%= comment.user.name %></a>
+                    <%= link_to (comment.user) do %>
+                        <%= comment.user.name %>
+                    <% end %>
                         <span class="comment-meta">
                           <span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d') %></span>
                         </span>
@@ -76,4 +65,4 @@
     </div>
     <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
 <% end %>
-
+</div>

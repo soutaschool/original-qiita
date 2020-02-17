@@ -1,0 +1,22 @@
+<div class="col-md-2">
+<h2><strong>ユーザー一覧</strong></h2>
+Qiitaに登録しているユーザーの一覧です。<br>
+ 現在1万人以上のユーザーが登録しています。
+</div>
+<div class="col-md-7">
+<table class='table table-hover table-inverse'>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+        <%= link_to(user) do %> 
+        <%= attachment_image_tag(user, :profile_image, fallback: 'qiita.jpeg', size:'50x50') %>
+        <%= user.name %> <br>
+        <%= user.introduction %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
