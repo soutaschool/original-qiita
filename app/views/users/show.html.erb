@@ -1,7 +1,6 @@
 <div class="col-md-3">
 <!--fallbackを記述するときのサイズ指定の仕方-->
 <%= attachment_image_tag(@user, :profile_image, fallback: 'qiita.jpeg', size:'200x200') %><br>
-<% if @user != nil %>
 <h3><strong><%= @user.last_name %> <%= @user.first_name %></strong></h3>
 <% if @user.check_email == true  %>
 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <%= @user.email %> <br>
@@ -10,7 +9,6 @@
 <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> <%= @user.from %> <br>
 <% if @user.id == current_user.id %>
 <%= link_to 'プロフィールを編集する', edit_user_path, class: 'glyphicon glyphicon-cog' %>
-<% end %>
 <% end %>
 </div>
 
@@ -23,8 +21,7 @@
         <td>
         <%= link_to(content) do %> 
         <%= content.title %> (<%= content.created_at.strftime('%Y/%m/%d') %>)
-        <span style="color: #aaa;">by <%= content.user.name %></span> <br>
-        <%= link_to "#{content.comments.count} コメント", content_path(content.id) %>
+                     <br> <%= link_to "#{content.comments.count} コメント", content_path(content.id) %>
           <% end %>
         </td>
       </tr>

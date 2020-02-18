@@ -35,7 +35,17 @@ class ContentsController < ApplicationController
 
     def search
         @content = Content.where('title LIKE ?', "%#{params[:title]}%")
-  end
+    end
+
+    def edit
+        @content = Content.find(params[:id])
+    end
+
+    def update
+        @content = Content.find(params[:id])
+        @content.update(content_params)
+        redirect_to content_path(@content.id)
+    end
 
     private
     def content_params
