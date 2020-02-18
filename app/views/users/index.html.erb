@@ -14,12 +14,12 @@ Qiitaに登録しているユーザーの一覧です。<br>
         <%= user.name %> <br>
         <% end %>
         <%= user.introduction %>
-          
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= paginate @users, class: "paginate" %>
 </div>
 
 <div class="col-md-3">

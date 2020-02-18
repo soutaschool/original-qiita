@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     end
 
     def index
-        @users = User.all
+        @users = User.page(params[:page]).reverse_order
 
         if params[:name].present?
             @user = User.where('name LIKE ?', "%#{params[:name]}%")

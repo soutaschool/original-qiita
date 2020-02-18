@@ -1,0 +1,18 @@
+<h1>検索結果</h1> <br>
+<table>
+  <thead>
+    <tr>
+      <th><h3>タイトル</h3></th>
+    </tr>
+  </thead>
+
+  <table class='table table-hover table-inverse'>
+  <tbody>
+    <% @content.each do |content| %>
+              <tr>
+                <td><span style="font-size: 30px;"><%= link_to content.title, content %></span>の記事でよろしいですか？？</td>
+            </tr>
+    <% end %>
+  </tbody>
+  </table>
+</table>
