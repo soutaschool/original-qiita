@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-<nav class="navbar navbar-light bg-success">
+<nav class="navbar navbar-light" style='background-color: pink;'>
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#Navber" aria-expanded="false">
@@ -51,12 +51,6 @@
         </li>
         </ul>
         </div>
-      <form class="navbar-form">
-        <div class="form-group">
-          <input type="search" class="form-control" placeholder="検索..." aria-label="検索...">
-        </div>
-        <button type="submit" class="btn btn-success">検索</button>
-      </form>
     </div><!-- /.navbar-collapse -->
     <% else %>
     <% end %>

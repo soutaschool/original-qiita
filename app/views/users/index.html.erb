@@ -27,6 +27,6 @@ Qiitaに登録しているユーザーの一覧です。<br>
 <p style='border-bottom: 3px solid red; text-align: center;'>名前を入力してください</p>
 <%= form_with url: search_users_path, method: :get, local: true do |f| %>
   <%= f.text_field :name %>
-  <%= f.submit :search %>
+  <%= f.submit '検索', class: 'btn btn-success' %>
 <% end %>
 </div>
