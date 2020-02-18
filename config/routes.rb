@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     resource :comments, only: [:create, :destroy]
   end #この記事のみにコメント機能を搭載する
 
-  resources :users
+  resources :users do
+    get :search, on: :collection
+  end
 end

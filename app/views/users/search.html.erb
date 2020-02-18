@@ -1,0 +1,15 @@
+<h1>検索結果</h1> <br>
+<table>
+  <thead>
+    <tr>
+      <th><h3>名前</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.each do |user| %>
+            <tr>
+                <td><span style="font-size: 30px;"><%= link_to user.name, user %></span>さんでよろしいですか？</td>
+            </tr>
+    <% end %>
+  </tbody>
+</table>

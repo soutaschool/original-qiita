@@ -35,23 +35,4 @@
 </div>
 
 <div class="col-md-3">
-<table class='table table-hover table-inverse'>
-<h2><strong><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> いいねした記事</strong></h2>
-  <tbody>
-    <% @contents.each do |content| %>
-      <tr>
-        <td>
-        <%= link_to(content) do %> 
-        <%= content.title %> (<%= content.created_at.strftime('%Y/%m/%d') %>)
-        <span style="color: #aaa;">by <%= content.user.name %></span> <br>
-        <%= link_to "#{content.comments.count} コメント", content_path(content.id) %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @contents, class: "paginate" %>
-</div>
-
 </div>

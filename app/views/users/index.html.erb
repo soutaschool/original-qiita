@@ -21,3 +21,12 @@ Qiitaに登録しているユーザーの一覧です。<br>
   </tbody>
 </table>
 </div>
+
+<div class="col-md-3">
+<h1>ユーザーを検索</h1>
+<p style='border-bottom: 3px solid red; text-align: center;'>名前を入力してください</p>
+<%= form_with url: search_users_path, method: :get, local: true do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit :search %>
+<% end %>
+</div>

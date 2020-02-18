@@ -12,12 +12,26 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
+
+        if params[:name].present?
+            @user = User.where('name LIKE ?', "%#{params[:name]}%")
+        else
+            @user = User.none
+        end
     end
 
     def update
         @user = User.find(params[:id])
         @user.update(user_params)
         redirect_to user_path(@user.id)
+    end
+
+    def search
+        if params[:name].present?
+          @user = User.where('name LIKE ?', "%#{params[:name]}%")
+        else
+          render 'search'
+        end
     end
 
     private 
