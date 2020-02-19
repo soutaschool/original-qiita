@@ -73,3 +73,7 @@ gem 'kaminari','~> 1.1.1'
 
 # validates errorの日本語化
 gem 'rails-i18n'
+
+# pryを使用するためのgem
+gem 'pry-rails'
+gem 'rb-readline'

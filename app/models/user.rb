@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
           validates :name, presence: true
           validates :email, presence: true
-          validates :password, presence: true
-
-          
+          validates :password, length: { minimum: 6 }, on: :create
+          validates :password_confirmation, presence: true, on: :create
+        
 end
