@@ -77,3 +77,5 @@ gem 'rails-i18n'
 # pryを使用するためのgem
 gem 'pry-rails'
 gem 'rb-readline'
+
+# フォロワー機能の実装
