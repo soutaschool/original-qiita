@@ -1,10 +1,21 @@
 <div class="jumbotron">
-  <h1 class="display-3", style='color: green; '>ようこそ！Qiitaへ！！</h1>
+<div id="container">
+	<div id="theTarget">
+		<div class="image1"></div>
+		<div class="image2"></div>
+		<div class="image3"></div>
+		<div class="image4"></div>
+		<div class="image5"></div>
+	</div>
+</div>
+  <h1 class="display-3", style='color: red; '>
+  <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 
+      ようこそ！Qiitaへ！！</h1>
   <p class="lead">Qiitaは、Incrementsが運営するプログラミング情報のナレッジコミュニティです！</p>
   <hr class="my-4">
   <p>ユーザ投稿型のナレッジコミュニティであり、ユーザはMarkdown形式で記事を投稿し、タグ付けなどを行うことができ、各記事にはブログのようなコメント機能が備え付けられているほか、編集リクエスト機能が存在しており、記事の誤りを他のユーザが指摘・修正することができます！！</p>
-  <p class="lead">
+  <p class="lead" style='text-align: center;'>
     <%= link_to '新規登録', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-    <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-success btn-lg' %>
   </p>
 </div>
