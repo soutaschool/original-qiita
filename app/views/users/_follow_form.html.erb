@@ -1,0 +1,8 @@
+<div id="follow_form">
+  <% if current_user.following? @user %>
+    <%= link_to "UnFollow", {controller: :users,action: :unfollow,user_id: @user.id}, method: :put, class: 'btn btn-warning btn-lg active glyphicon glyphicon-thumbs-down' %>
+  <% else %>
+    <%= link_to "Follow", {controller: :users,action: :follow,user_id: @user.id}, method: :put, class: 'btn btn-success btn-lg active glyphicon glyphicon-thumbs-up' %>
+  <% end %>
+  </div>
+<!--フォローしてたらフォロー解除ボタンを、フォローしてなかったらフォローボタンを表示-->

@@ -14,5 +14,8 @@ class User < ApplicationRecord
           validates :email, presence: true
           validates :password, length: { minimum: 6 }, on: :create
           validates :password_confirmation, presence: true, on: :create
+
+          acts_as_followable # フォロワー機能
+          acts_as_follower   # フォロー機能
         
 end

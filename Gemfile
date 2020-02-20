@@ -79,3 +79,4 @@ gem 'pry-rails'
 gem 'rb-readline'
 
 # フォロワー機能の実装
+gem "acts_as_follower", github: "tcocca/acts_as_follower"

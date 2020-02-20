@@ -1,0 +1,16 @@
+<h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <strong> フォロワー一覧</strong></h1>
+<table class='table table-hover table-inverse'>
+  <tbody>
+    <% @user.followers.each do |user| %>
+      <tr>
+        <td>
+        <%= link_to(user) do %> 
+        <%= attachment_image_tag(user, :profile_image, fallback: 'qiita.jpeg', size:'50x50') %>
+        <%= user.name %> <br>
+        <% end %>
+        <%= user.introduction %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

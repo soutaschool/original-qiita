@@ -32,4 +32,15 @@
 </div>
 
 <div class="col-md-3">
+<h3><strong><span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span>     <%= @user.follow_count %>
+<%= link_to "フォロー", {controller: :users,action: :follow_list,user_id: @user.id}, method: :get %></strong></h3> <br>
+<!--クリックすると、フォローリストに飛ぶ-->
+<h3><strong><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>    <%= @user.followers_count %>
+<%= link_to "フォロワー", {controller: :users,action: :follower_list,user_id: @user.id}, method: :get %></strong></h3>
+<!--クリックすると、フォロワーリストに飛ぶ-->
+
+<% if current_user.id != @user.id %>
+  <%= render 'follow_form' %>
+<% end %>
+<!--ユーザーがカレントユーザーじゃなかったら、'_follow_form.html.erb'を表示-->
 </div>
