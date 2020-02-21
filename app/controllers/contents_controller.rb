@@ -55,7 +55,9 @@ class ContentsController < ApplicationController
     end
 
     def confirm
-        @contents = Content.draft.order("created_at DESC").page(params[:page]).per(10)
+        @user = User.find(params[:id])
+        @contents = @user.contents.draft.order("created_at DESC").page(params[:page]).per(10)
+        # ユーザーの投稿した下書きを閲覧することができるようになる
     end
 
     private

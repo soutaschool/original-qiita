@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resource :comments, only: [:create, :destroy]
     get :search, on: :collection 
-    get :confirm, on: :collection  
+    get :confirm, on: :member  
     #  collection = idがつかない
     #  member = idがつく
   end 
