@@ -14,7 +14,7 @@ class ContentsController < ApplicationController
     end
     def index
         # カミナリの実装をするので以下の変数に変える
-        @contents = Content.page(params[:page]).reverse_order
+        @contents = Content.published.order("created_at DESC").page(params[:page]).per(10)
 
         if params[:title].present?
             @content = Content.where('name LIKE ?', "%#{params[:title]}%")
@@ -23,8 +23,15 @@ class ContentsController < ApplicationController
         end
     end
     def show
-        @content = Content.find(params[:id])
         @comment = Comment.new
+        @content = Content.find(params[:id])
+
+        if  @content.nil?
+        redirect_to root_path
+        elsif @content.draft?
+        login_required
+        end
+        # 条件分岐で下書きはログインしてないと見れなくする
     end
 
     def destroy
@@ -47,8 +54,16 @@ class ContentsController < ApplicationController
         redirect_to content_path(@content.id)
     end
 
+    def confirm
+        @contents = Content.draft.order("created_at DESC").page(params[:page]).per(10)
+    end
+
     private
     def content_params
-        params.require(:content).permit(:title, :tag, :body)
+        params.require(:content).permit(:title, :tag, :body, :status)
+    end
+
+    def login_required
+        redirect_to login_url unless current_user
     end
 end

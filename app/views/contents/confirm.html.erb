@@ -1,0 +1,30 @@
+<div class="col-md-2">
+</div>
+<div class="col-md-7">
+<h1>下書き記事の一覧</h1>
+<table class='table table-hover table-inverse'>
+  <tbody>
+    <% @contents.each do |content| %>
+      <tr>
+        <td>
+        <%= link_to(content) do %> 
+         <%= attachment_image_tag(content.user, :profile_image, fallback: 'qiita.jpeg', size:'50x50') %>
+        <%= content.title %> (<%= content.created_at.strftime('%Y/%m/%d') %>)
+        <span style="color: #aaa;">by <%= content.user.name %></span> <br>
+        <%= link_to "#{content.comments.count} コメント", content_path(content.id) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @contents, class: "paginate" %>
+</div>
+<div class="col-md-3">
+<h1>記事を検索</h1>
+<p style='border-bottom: 3px solid red; text-align: center;'>タイトルを入力してください</p>
+<%= form_with url: search_contents_path, method: :get, local: true do |f| %>
+  <%= f.text_field :title %>
+  <%= f.submit '検索', class: 'btn btn-success' %>
+<% end %>
+</div>
