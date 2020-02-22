@@ -1,0 +1,63 @@
+.col-md-1
+  - if @content.favorited_by?(current_user)
+    = link_to content_favorites_path(@content), method: :delete do
+      i.glyphicon.glyphicon-heart[style="color: pink; font-size: 40px;"]
+      br
+      span[style="font-size: 20px;"]
+        = @content.favorites.count
+      |  いいね 
+  - else
+    = link_to content_favorites_path(@content), method: :post do
+      i.glyphicon.glyphicon-heart[style="color: pink; font-size: 40px;"]
+      br
+      span[style="font-size: 20px;"]
+        = @content.favorites.count
+      |  いいね 
+.col-md-7
+  - if @content.user == current_user
+    = link_to '編集する(公開&非公開を含む)', edit_content_path(@content), class: 'glyphicon glyphicon-pencil'
+    li.dropdown
+      a.dropdown-toggle[href="#" data-toggle="dropdown"]
+        span.glyphicon.glyphicon-cog[aria-hidden="true"]
+        span.caret
+      ul.dropdown-menu
+        li
+          a[href="#"]
+            | メニュー1
+        li
+          a[href="#"]
+            | メニュー2
+        li.divider[role="separator"]
+        li
+          = link_to '削除', @content, method: :delete, data: { confirm: '本当に消しますか？' }
+  h1[style="border-bottom: 10px solid yellow; text-align: center;"]
+    strong.big-title
+      span.glyphicon.glyphicon-ok-sign[aria-hidden="true"]
+      = @content.title
+  h2[style="text-align: center;"]
+    span.label.label-default
+      = @content.tag
+  br
+  br
+  br
+  span[style="font-size: 20px;"]
+    = @content.body
+.col-md-4
+  #comments.comment-list.bt.style-2
+    .float-wrapper
+      h2.comment-count
+        = @content.comments.count
+        | 件コメント
+    ol
+      - @content.comments.each do |comment|
+        li
+          = link_to (comment.user) do
+            = comment.user.name
+          = comment.created_at.strftime('%Y/%m/%d')
+          br
+          = comment.comment
+    = form_for [@content, @comment] do |f|
+      .row
+        .col-md-12
+          = f.text_area :comment, rows:'5', class: "form-control",placeholder: "記事へのコメントはここに"
+      = f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right btn-primary"

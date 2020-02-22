@@ -93,3 +93,9 @@ gem 'bootstrap_form'
 
 # スキーマーファイルを各ページにコメントとしてはいち
 gem 'annotate'
+
+# slimファイルに変換
+gem 'slim-rails'
+
+# erbファイルを変換
+gem 'html2slim'
