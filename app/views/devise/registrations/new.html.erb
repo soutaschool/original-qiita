@@ -1,6 +1,6 @@
 <div class="col-md-offset-3 col-md-6">
 <h1 class="big-log">Qittaへようこそ！</h1>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <%= f.text_field :name, placeholder: 'ユーザー名',

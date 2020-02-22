@@ -83,3 +83,5 @@ gem "acts_as_follower", github: "tcocca/acts_as_follower"
 
 # セレクトボックスで選択
 gem 'enum_help'
+
+gem 'bootstrap_form'
