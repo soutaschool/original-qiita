@@ -30,7 +30,7 @@
 <%= @content.title %></strong></h1>
 <h2 style='text-align: center;'><span class="label label-default"><%= @content.tag %></span></h2>
 <br> <br> <br>
-<span style='font-size: 20px;'><%= @content.body %></span>
+<span style='font-size: 20px;'><%= markdown(@content.body).html_safe %></span>
 </div>
 
 <div class = 'col-md-4'>

@@ -102,3 +102,7 @@ gem 'html2slim'
 
 # enumの日本語化
 gem 'enum_help'
+
+# マークダウン＆シンタックスハイライト
+gem 'redcarpet', '~> 2.3.0'
+gem 'coderay'
