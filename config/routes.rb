@@ -21,6 +21,7 @@
 #                           POST   /contents/:content_id/favorites(.:format)                                                favorites#create
 #          content_comments DELETE /contents/:content_id/comments(.:format)                                                 comments#destroy
 #                           POST   /contents/:content_id/comments(.:format)                                                 comments#create
+#         timeline_contents GET    /contents/timeline(.:format)                                                             contents#timeline
 #           search_contents GET    /contents/search(.:format)                                                               contents#search
 #           confirm_content GET    /contents/:id/confirm(.:format)                                                          contents#confirm
 #                  contents GET    /contents(.:format)                                                                      contents#index
@@ -57,6 +58,7 @@ Rails.application.routes.draw do
   resources :contents do                 
     resource :favorites, only: [:create, :destroy]
     resource :comments, only: [:create, :destroy]
+    get :timeline, on: :collection
     get :search, on: :collection 
     get :confirm, on: :member  
     #  collection = idがつかない

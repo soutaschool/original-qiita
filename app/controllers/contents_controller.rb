@@ -60,6 +60,9 @@ class ContentsController < ApplicationController
         # ユーザーの投稿した下書きを閲覧することができるようになる
     end
 
+    def timeline
+    end
+
     private
     def content_params
         params.require(:content).permit(:title, :tag, :body, :status)
