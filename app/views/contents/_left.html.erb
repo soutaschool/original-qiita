@@ -1,7 +1,7 @@
 <div class="col-md-2">
 <ul class="list-group">
 	<li class="list-group-item"><strong><%= link_to 'トレンド', contents_path, class: 'glyphicon glyphicon-check' %></strong></li>
-	<li class="list-group-item"><strong><%= link_to 'タイムライン', timeline_contents_path, class: 'glyphicon glyphicon-list' %></strong></li>
+	<li class="list-group-item"><strong><%= link_to 'タイムライン', timeline_content_path(current_user), class: 'glyphicon glyphicon-list' %></strong></li>
 	<li class="list-group-item"><strong><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> タグフィールド</strong></li>
     <li class="list-group-item"><strong><span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span> マイルストーン</strong></li>
 </ul>

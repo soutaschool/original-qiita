@@ -26,6 +26,7 @@
         </li>
       </ul>
         <div class="navbar-right">
+        <%= link_to 'ストック一覧', confirm_content_path(current_user), class: 'navbar-brand' %>
         <%= link_to '投稿する', new_content_path, class: 'navbar-brand glyphicon glyphicon-new-window' %>
         <ul class="nav navbar-nav">
         <li class="dropdown">
