@@ -1,3 +1,15 @@
 <%= render 'left' %>
-
+<div class="col-md-7">
+<h5><span class="glyphicon glyphicon-check" aria-hidden="true"></span> トレンド<div style='color: #aaa;'>最近人気の記事を毎日5時/17時に更新</div></h5>
+<table class='table table-hover table-inverse'>
+  <tbody>
+    <div class="contents_like">
+  <% @contents.each do |content| %>
+    <% content = Content.find_by(id: content.user_id) %>
+    <%= content.title %>
+  <% end %>
+</div><!-- contents_like -->
+  </tbody>
+</table>
+</div>
 <%= render 'right' %>
