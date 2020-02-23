@@ -21,6 +21,7 @@ class ContentsController < ApplicationController
         else
             @content = Content.none
         end
+        @user = User.find(params[:id])
     end
     def show
         @comment = Comment.new
