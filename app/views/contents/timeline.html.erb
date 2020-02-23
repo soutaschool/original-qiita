@@ -3,12 +3,22 @@
 <h5><span class="glyphicon glyphicon-check" aria-hidden="true"></span> トレンド<div style='color: #aaa;'>最近人気の記事を毎日5時/17時に更新</div></h5>
 <table class='table table-hover table-inverse'>
   <tbody>
-    <div class="contents_like">
-  <% @contents.each do |content| %>
-    <% content = Content.find_by(id: content.user_id) %>
-    <%= content.title %>
-  <% end %>
-</div><!-- contents_like -->
+    <% @contents.each do |content| %>
+      <tr>
+        <td>
+        <%= link_to(content.user) do %>
+         <%= attachment_image_tag(content.user, :profile_image, fallback: 'qiita.jpeg', size:'50x50') %>
+         <% end %><%= link_to(content) do %> 
+        <%= content.title %> (<%= time_ago_in_words(content.created_at) %>前)
+        <% end %>
+        <%= link_to(content.user) do %>
+        <span style="color: #aaa;">by <%= content.user.name %></span>
+        <% end %> <br> <%= link_to(content) do %>
+        <%= link_to "#{content.comments.count} コメント", content_path(content.id) %>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 </div>
