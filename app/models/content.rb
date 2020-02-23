@@ -12,5 +12,7 @@ class Content < ApplicationRecord
       favorites.where(user_id: user.id).exists?
     end
     # user.idがfavoriteに存在するかどうか
+    attachment :image
 end
 
+# 656 437

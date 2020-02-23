@@ -10,7 +10,7 @@
          <%= attachment_image_tag(content.user, :profile_image, fallback: 'qiita.jpeg', size:'50x50') %>
         <%= content.title %> (<%= content.created_at.strftime('%Y/%m/%d') %>)
         <% end %>
-        <%= link_to(@user) do %>
+        <%= link_to(content.user) do %>
         <span style="color: #aaa;">by <%= content.user.name %></span>
         <% end %> <br> <%= link_to(content) do %>
         <%= link_to "#{content.comments.count} コメント", content_path(content.id) %>
