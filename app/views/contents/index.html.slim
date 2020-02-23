@@ -33,11 +33,14 @@
               |  (
               = content.created_at.strftime('%Y/%m/%d')
               | ) 
+            = link_to(@user) do
               span[style="color: #aaa;"]
                 | by 
                 = content.user.name
+              |  <ruby code=" end %> 
               br
-              = link_to "#{content.comments.count} コメント", content_path(content.id)
+              = link_to(content) do ">
+              -         <%= link_to "#{content.comments.count} コメント", content_path(content.id)
   = paginate @contents, class: "paginate"
 .col-md-3
   h1

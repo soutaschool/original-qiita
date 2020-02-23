@@ -1,11 +1,11 @@
 .col-md-12
-  = form_for @content do |f|
+  = form_with(model: @content, local: true) do |f|
     - if @content.errors.any?
       = @content.errors.count
       | 件のエラーが発生しました 
       - @content.errors.full_messages.each do |message|
         = message
-    = f.select :status, Content.statuses.keys.map { |k| [t("enums.content.status.#{k}"),k]}
+    = f.select :status, Content.sex_types_i18n.keys.map { |k| [Content.sex_types_i18n[k], k]}
     = f.text_field :title, class: 'col-md-12 title',placeholder: 'タイトル', aria_label: 'タイトル'
     = f.text_field :tag, class: 'col-md-12 title' , placeholder: 'プログラミング技術に関連するタグをスペース区切りで5つまで入力（例: Ruby Rails:4.2.0', aria_label: 'プログラミング技術に関連するタグをスペース区切りで5つまで入力（例: Ruby Rails:4.2.0'
 = f.text_area :body, class: 'col-md-12 body', placeholder:'プログラミング知識をMarkdown記法で書いて共有しよう', aria_label: 'プログラミング知識をMarkdown記法で書いて共有しよう'

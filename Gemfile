@@ -99,3 +99,6 @@ gem 'slim-rails'
 
 # erbファイルを変換
 gem 'html2slim'
+
+# enumの日本語化
+gem 'enum_help'

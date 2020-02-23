@@ -13,4 +13,8 @@ ja:
         password: パスワード
         email: メールアドレス
         password_confirmation: 確認のパスワード
-        
+  enums:
+    content:
+      status:
+        draft: 下書き(非公開)
+        published: 公開
