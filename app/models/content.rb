@@ -14,5 +14,3 @@ class Content < ApplicationRecord
     # user.idがfavoriteに存在するかどうか
     attachment :image
 end
-
-# 656 437

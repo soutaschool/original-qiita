@@ -61,7 +61,7 @@ class ContentsController < ApplicationController
     end
 
     def timeline
-        @user = User.find_by(id: params[:favorites])
+        @user = User.find_by(id: params[:user])
         @contents = Content.where(user_id: @user)
     end
 
