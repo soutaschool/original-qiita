@@ -1,0 +1,22 @@
+.col-md-offset-3.col-md-6
+  h1.big-log
+    | Qiitaにログイン
+  = bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = f.text_field :name, placeholder: 'ユーザー名',
+    -      aria_label: 'ユーザー名', class: 'col-md-12 title'
+    .field
+      = f.password_field :password, placeholder: 'パスワード',
+      -      aria_label: 'パスワード', class: 'col-md-12 title'
+    - if devise_mapping.rememberable?
+      .field
+        = f.check_box :remember_me
+        = f.label :remember_me
+    .actions[style="text-align: center;"]
+      = f.submit "Qiitaにログイン",  class: 'btn btn-primary'
+      br
+      br
+      br
+      h4
+        | Qiita のアカウントを持っていない場合は
+        = link_to '新規登録',new_user_registration_path
+        | から。

@@ -1,0 +1,39 @@
+.col-md-offset-3.col-md-6
+  h1.big-log
+    | Qittaへようこそ！
+  = bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    = f.text_field :name, placeholder: 'ユーザー名',
+    -      aria_label: 'ユーザー名', class: 'col-md-12 field title'
+    .field
+      = f.email_field :email, placeholder: 'メールアドレス',
+      -     aria_label: 'メールアドレス', class: 'col-md-12 field title'
+    h5
+      | 公開メールアドレス
+    = f.check_box :check_email
+    | メールアドレスをメールアドレスを全体に公開する 
+    br
+    |  （誰もがあなたのメールアドレスを閲覧できるようになります） 
+    h5
+      | サイト/ブログ
+    = f.text_field :site, class: 'col-md-12 title'
+    h5
+      | 所属している組織・会社
+    = f.text_field :company, class: 'col-md-12 title'
+    h5
+      | 移住地
+    = f.text_field :from, class: 'col-md-12 title'
+    .field
+      = f.password_field :password, placeholder: 'パスワード',
+      -     aria_label: 'パスワード', class: 'col-md-12 field title'
+    .field
+      = f.password_field :password_confirmation, placeholder: 'パスワードもう一回！',
+      -     aria_label: 'パスワードもう一回！', class: 'col-md-12 field title'
+    .actions[style="text-align: center;"]
+      = f.submit "利用規約に同意して登録", class: 'btn btn-success'
+      br
+      br
+      h4
+        | Qiita のアカウントを持っている場合は
+        = link_to 'ログイン',new_user_session_path
+        | から。

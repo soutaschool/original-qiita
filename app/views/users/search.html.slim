@@ -1,0 +1,17 @@
+h1
+  | 検索結果
+br
+table
+  thead
+    tr
+      th
+        h3
+          | 名前
+  table.table.table-hover.table-inverse
+    tbody
+      - @user.each do |user|
+        tr
+          td
+            span[style="font-size: 30px;"]
+              = link_to user.name, user
+            | さんでよろしいですか？

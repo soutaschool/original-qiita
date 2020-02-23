@@ -1,0 +1,14 @@
+h1
+  span.glyphicon.glyphicon-user[aria-hidden="true"]
+  strong
+    |  フォロー一覧
+table.table.table-hover.table-inverse
+  tbody
+    - @user.all_following.each do |user|
+      tr
+        td
+          = link_to(user) do
+            = attachment_image_tag(user, :profile_image, fallback: 'qiita.jpeg', size:'50x50')
+            = user.name
+            br
+          = user.introduction

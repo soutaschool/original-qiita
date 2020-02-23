@@ -1,0 +1,19 @@
+.jumbotron
+  #container
+    #theTarget
+      .image1
+      .image2
+      .image3
+      .image4
+      .image5
+  |  <h1 class="display-3", style='color: red; '> 
+  span.glyphicon.glyphicon-search[aria-hidden="true"]
+  |  ようこそ！Qiitaへ！！
+  p.lead
+    | Qiitaは、Incrementsが運営するプログラミング情報のナレッジコミュニティです！
+  hr.my-4
+  p
+    | ユーザ投稿型のナレッジコミュニティであり、ユーザはMarkdown形式で記事を投稿し、タグ付けなどを行うことができ、各記事にはブログのようなコメント機能が備え付けられているほか、編集リクエスト機能が存在しており、記事の誤りを他のユーザが指摘・修正することができます！！
+  p.lead[style="text-align: center;"]
+    = link_to '新規登録', new_user_registration_path, class: 'btn btn-primary btn-lg'
+    = link_to 'ログイン', new_user_session_path, class: 'btn btn-success btn-lg'

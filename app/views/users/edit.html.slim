@@ -1,0 +1,41 @@
+.col-md-offset-3.col-md-7.edit
+  h2
+    = attachment_image_tag(@user, :profile_image, fallback: 'qiita.jpeg', size:'27x27')
+    = @user.name
+    |  アカウント 
+    br
+    strong
+      |  公開用プロフィール 
+  h5
+    strong
+      | 名前
+  = bootstrap_form_for @user do |f|
+    = f.text_field :first_name, class: 'col-md-5  title',placeholder: '名', aria_label: '名'
+    = f.text_field :last_name, class: 'col-md-5 title',placeholder: '姓', aria_label: '姓'
+    br
+    br
+    br
+    h5
+      | 写真の変更
+    = f.attachment_field :profile_image
+    | 　 
+    h5
+      | 公開メールアドレス
+    = f.check_box :check_email
+    | メールアドレスをメールアドレスを全体に公開する 
+    br
+    |  （誰もがあなたのメールアドレスを閲覧できるようになります） 
+    h5
+      | サイト/ブログ
+    = f.text_field :site, class: 'col-md-12 title'
+    h5
+      | 所属している組織・会社
+    = f.text_field :company, class: 'col-md-12 title'
+    h5
+      | 移住地
+    = f.text_field :from, class: 'col-md-12 title'
+    h5
+      | 自己紹介
+    = f.text_area :introduction, class: 'col-md-12 sub-body'
+    .actions.row
+      = f.submit 'Qiitaに投稿',class: 'btn btn-success'

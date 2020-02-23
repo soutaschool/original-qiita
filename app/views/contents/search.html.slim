@@ -1,0 +1,17 @@
+h1
+  | 検索結果
+br
+table
+  thead
+    tr
+      th
+        h3
+          | タイトル
+  table.table.table-hover.table-inverse
+    tbody
+      - @content.each do |content|
+        tr
+          td
+            span[style="font-size: 30px;"]
+              = link_to content.title, content
+            | の記事でよろしいですか？？
