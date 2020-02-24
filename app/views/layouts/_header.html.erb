@@ -16,6 +16,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">ホーム<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to 'トレンド', contents_path, class: 'glyphicon glyphicon-check' %></li>
+            <li><%= link_to 'タイムライン', timeline_content_path(current_user), class: 'glyphicon glyphicon-list' %></li>
           </ul>
         </li>
         <li class="dropdown">
