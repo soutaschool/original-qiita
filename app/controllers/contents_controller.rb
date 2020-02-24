@@ -61,8 +61,19 @@ class ContentsController < ApplicationController
     end
 
     def timeline
-        @user = User.find_by(id: params[:user])
-        @contents = Content.where(user_id: @user)
+        #フォローしているユーザーのみタイムラインに表示
+        #N+1問題を防ぐためにincludesメソッド(gem: bulletを導入)を使用
+            @contents_all = Content.includes(:user,:taggings,:like_users,:likes)
+
+            @user = User.find(current_user.id)
+        #フォローしているユーザーを取得
+            @follow_users = @user.all_following
+        #フォローユーザーのツイートを表示
+            @contents = @contents_all.where(user_id: @follow_users).order("created_at DESC").page(params[:page]).per(10)
+    end
+
+    def tag_field
+        @contents = @user.contents.draft.order("created_at DESC").page(params[:page]).per(10)
     end
 
     private

@@ -60,7 +60,8 @@ Rails.application.routes.draw do
     resource :comments, only: [:create, :destroy]
     get :timeline, on: :member
     get :search, on: :collection 
-    get :confirm, on: :member  
+    get :confirm, on: :member 
+    get :tag_field, on: :member 
     #  collection = idがつかない
     #  member = idがつく
   end 

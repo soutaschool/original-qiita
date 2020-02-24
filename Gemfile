@@ -106,3 +106,6 @@ gem 'enum_help'
 # マークダウン＆シンタックスハイライト
 gem 'redcarpet', '~> 2.3.0'
 gem 'coderay'
+
+# includeを使用するため
+gem 'bullet'
