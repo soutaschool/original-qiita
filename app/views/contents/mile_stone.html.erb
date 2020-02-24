@@ -1,11 +1,13 @@
 <%= render 'left' %>
 <div class="col-md-7">
-<h5><span class="glyphicon glyphicon-check" aria-hidden="true"></span> トレンド<div style='color: #aaa;'>最近人気の記事を毎日5時/17時に更新</div></h5>
+<h5><span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span> マイルストーン<div style='color: #aaa;'>最もいいねの多い記事を10
+個表示</div></h5>
 <table class='table table-hover table-inverse'>
   <tbody>
     <% @contents.each do |content| %>
       <tr>
         <td>
+        <span style="font-size: 20px; color: red;"><%= content.favorites.count  %></span> いいね <br>
         <%= link_to(content.user) do %>
          <%= attachment_image_tag(content.user, :profile_image, fallback: 'qiita.jpeg', size:'50x50') %>
          <% end %><%= link_to(content) do %> 
@@ -21,6 +23,5 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @contents, class: "paginate" %>
 </div>
  <%= render 'right' %>

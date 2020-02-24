@@ -77,7 +77,7 @@ class ContentsController < ApplicationController
     end
 
     def mile_stone
-        @contents = Content.published.order("created_at DESC").page(params[:page]).per(10)
+        @contents = Content.find(Favorite.group(:content_id).order('count(content_id) desc').limit(10).pluck(:content_id))
     end
 
     private
