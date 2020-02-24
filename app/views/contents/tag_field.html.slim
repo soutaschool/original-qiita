@@ -1,0 +1,29 @@
+= render 'left'
+.col-md-7
+  h5
+    span.glyphicon.glyphicon-check[aria-hidden="true"]
+    |  トレンド
+  div[style="color: #aaa;"]
+    | 最近人気の記事を毎日5時/17時に更新
+  table.table.table-hover.table-inverse
+    tbody
+      - @contents.each do |content|
+        tr
+          td
+            = link_to(content.user) do
+              = attachment_image_tag(content.user, :profile_image, fallback: 'qiita.jpeg', size:'50x50')
+              |  <ruby code=" end %>
+              = link_to(content) do "> 
+              -         <%= content.title
+              |  (
+              = time_ago_in_words(content.created_at)
+              | 前) 
+            = link_to(content.user) do
+              span[style="color: #aaa;"]
+                | by 
+                = content.user.name
+              |  <ruby code=" end %> 
+              br
+              = link_to(content) do ">
+              -         <%= link_to "#{content.comments.count} コメント", content_path(content.id)
+= render 'right'
