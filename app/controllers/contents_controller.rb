@@ -73,7 +73,11 @@ class ContentsController < ApplicationController
     end
 
     def tag_field
-        @contents = @user.contents.draft.order("created_at DESC").page(params[:page]).per(10)
+        @contents = Content.published.order("created_at DESC").page(params[:page]).per(10)
+    end
+
+    def mile_stone
+        @contents = Content.published.order("created_at DESC").page(params[:page]).per(10)
     end
 
     private
