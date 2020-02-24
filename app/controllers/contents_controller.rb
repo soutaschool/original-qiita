@@ -63,7 +63,7 @@ class ContentsController < ApplicationController
     def timeline
         #フォローしているユーザーのみタイムラインに表示
         #N+1問題を防ぐためにincludesメソッド(gem: bulletを導入)を使用
-            @contents_all = Content.includes(:user,:taggings,:like_users,:likes)
+            @contents_all = Content.includes(:user,:favorites)
 
             @user = User.find(current_user.id)
         #フォローしているユーザーを取得
