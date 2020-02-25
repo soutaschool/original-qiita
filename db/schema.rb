@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_23_054723) do
+ActiveRecord::Schema.define(version: 2020_02_25_014257) do
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_02_23_054723) do
     t.integer "content_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "favorite_id"
   end
 
   create_table "contents", force: :cascade do |t|
@@ -53,6 +54,21 @@ ActiveRecord::Schema.define(version: 2020_02_23_054723) do
     t.index ["follower_type", "follower_id"], name: "index_follows_on_follower_type_and_follower_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "favorite_id"
+    t.integer "comment_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["favorite_id"], name: "index_notifications_on_favorite_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -75,6 +91,11 @@ ActiveRecord::Schema.define(version: 2020_02_23_054723) do
     t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "users"
+    t.string "provider"
+    t.string "uid"
+    t.string "token"
+    t.string "meta"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -34,6 +34,7 @@ class UsersController < ApplicationController
     def follow
         @user = User.find(params[:user_id])
         current_user.follow(@user)
+        @user.create_notification_follow!(current_user)
         redirect_to user_path(@user)
     end
   #フォローする

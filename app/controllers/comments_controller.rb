@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
         comment = current_user.comments.new(comment_params)
         comment.content_id = content.id
         comment.save
+        comment.create_notification_comment!(current_user, content.id)
         redirect_to content_path(content)
     end
     private

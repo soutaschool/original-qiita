@@ -47,6 +47,7 @@
 #                           PUT    /users/unfollow/:user_id(.:format)                                                       users#unfollow
 #                           GET    /users/follow_list/:user_id(.:format)                                                    users#follow_list
 #                           GET    /users/follower_list/:user_id(.:format)                                                  users#follower_list
+#             notifications GET    /notifications(.:format)                                                                 notifications#index
 #                refile_app        /attachments                                                                             #<Refile::App app_file="/home/vagrant/.bundle/ruby/2.5.0/refile-46b4178654e6/lib/refile/app.rb">
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 # rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
@@ -80,5 +81,7 @@ Rails.application.routes.draw do
 get 'users/follow_list/:user_id' => 'users#follow_list'
 get 'users/follower_list/:user_id' => 'users#follower_list'
 #フォロー・フォロワーの一覧ページ
+
+resources :notifications, only: :index
 end
 # bundle exec annotate --routes
