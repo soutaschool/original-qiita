@@ -109,3 +109,7 @@ gem 'coderay'
 
 # includeを使用するため
 gem 'bullet'
+
+# oauth認証の実装
+gem 'omniauth'
+gem 'omniauth-google-oauth2'

@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,:omniauthable
         # ユーザー名
          has_many :contents, dependent: :destroy
          has_many :comments, dependent: :destroy
@@ -32,4 +32,19 @@ class User < ApplicationRecord
               notification.save if notification.valid?
             end
           end
+
+          # ouath認証のログイン時のもの
+          def self.find_for_google_oauth2(auth)
+            user = User.where(email: auth.info.email).first
+            unless user
+              user = User.create(name:     auth.info.name,
+                                 provider: auth.provider,
+                                 uid:      auth.uid,
+                                 email:    auth.info.email,
+                                 token:    auth.credentials.token,
+                                 password: Devise.friendly_token[0, 20])
+            end
+            user
+          end
+        
 end

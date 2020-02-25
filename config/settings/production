@@ -1,0 +1,2 @@
+omniauth:
+  redirect_uri: 'http://sample.com/users/auth/google_oauth2/callback'
