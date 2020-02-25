@@ -1,15 +1,19 @@
 = render 'left'
 .col-md-7
   h5
-    span.glyphicon.glyphicon-list[aria-hidden="true"]
-    |  タイムライン
+    span.glyphicon.glyphicon-unchecked[aria-hidden="true"]
+    |  マイルストーン
   div[style="color: #aaa;"]
-    | フォローしているユーザーの投稿のみを表示
+    | 最もいいねの多い記事を10 個表示
   table.table.table-hover.table-inverse
     tbody
       - @contents.each do |content|
         tr
           td
+            span[style="font-size: 20px; color: red;"]
+              = content.favorites.count
+            |  いいね 
+            br
             = link_to(content.user) do
               = attachment_image_tag(content.user, :profile_image, fallback: 'qiita.jpeg', size:'50x50')
               |  <ruby code=" end %>

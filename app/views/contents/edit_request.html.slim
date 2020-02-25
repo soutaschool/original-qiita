@@ -1,0 +1,16 @@
+.col-md-3
+h1[style='text-align: center;'] あなたが編集することができる投稿一覧
+table.table.table-hover.table-inverse
+    tbody
+      - @contents.each do |content|
+        tr
+          td
+            = link_to(content) do
+              = content.title
+              |  (
+              = time_ago_in_words(content.created_at)
+              | 前) 
+            br
+            = link_to(content) do
+              = link_to "#{content.comments.count} コメント", content_path(content.id)
+= render 'right'

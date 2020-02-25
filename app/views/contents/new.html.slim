@@ -8,6 +8,7 @@
     = f.select :status, Content.statuses.keys.map { |k| [t("enums.content.status.#{k}"),k]}
     = f.text_field :title, class: 'col-md-12 title',placeholder: 'タイトル', aria_label: 'タイトル'
     = f.text_field :tag, class: 'col-md-12 title' , placeholder: 'プログラミング技術に関連するタグをスペース区切りで5つまで入力（例: Ruby Rails:4.2.0', aria_label: 'プログラミング技術に関連するタグをスペース区切りで5つまで入力（例: Ruby Rails:4.2.0'
+= f.attachment_field :image, class: 'col-md-12 title', placeholder: '写真を送付', aria_label: '写真を送付'
 = f.text_area :body, class: 'col-md-12 body', placeholder:'プログラミング知識をMarkdown記法で書いて共有しよう', aria_label: 'プログラミング知識をMarkdown記法で書いて共有しよう'
 .actions.row
   = f.submit 'Qiitaに投稿',class: 'btn btn-success col-md-offset-11 col-md-1 action'

@@ -12,11 +12,8 @@
               = attachment_image_tag(content.user, :profile_image, fallback: 'qiita.jpeg', size:'50x50')
               = content.title
               |  (
-              = content.created_at.strftime('%Y/%m/%d')
-              | ) 
-              span[style="color: #aaa;"]
-                | by 
-                = content.user.name
+              = time_ago_in_words(content.created_at)
+              | 前) 
               br
               = link_to "#{content.comments.count} コメント", content_path(content.id)
   = paginate @contents, class: "paginate"

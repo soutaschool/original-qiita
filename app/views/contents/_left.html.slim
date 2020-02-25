@@ -5,13 +5,10 @@
         = link_to 'トレンド', contents_path, class: 'glyphicon glyphicon-check'
     li.list-group-item
       strong
-        span.glyphicon.glyphicon-list[aria-hidden="true"]
-        |  タイムライン
+        = link_to 'タイムライン', timeline_content_path(current_user), class: 'glyphicon glyphicon-list'
     li.list-group-item
       strong
-        span.glyphicon.glyphicon-tags[aria-hidden="true"]
-        |  タグフィールド
+        = link_to 'タグフィールド', tag_field_content_path(current_user), class: 'glyphicon glyphicon-tags'
     li.list-group-item
       strong
-        span.glyphicon.glyphicon-unchecked[aria-hidden="true"]
-        |  マイルストーン
+        = link_to 'マイルストーン', mile_stone_content_path(current_user), class: 'glyphicon glyphicon-unchecked'

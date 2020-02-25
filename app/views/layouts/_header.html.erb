@@ -39,7 +39,7 @@
             <li><%= link_to 'マイページ', user_path(current_user) %></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to '下書き一覧(draft)', confirm_content_path(current_user) %></li>
-            <li><a href="#">編集リクエスト一覧</a></li>
+            <li><%= link_to '編集リクエスト', edit_request_contents_path %></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">設定</a></li>
             <li><a href="#">ヘルプ</a></li>

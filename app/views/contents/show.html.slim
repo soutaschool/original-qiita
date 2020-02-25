@@ -40,8 +40,13 @@
   br
   br
   br
+  - if @content.image != nil
+    = attachment_image_tag(@content, :image, fallback: 'qiita.jpeg', size:'656x437')
+    br
+    br
+    br
   span[style="font-size: 20px;"]
-    = @content.body
+    = markdown(@content.body).html_safe
 .col-md-4
   #comments.comment-list.bt.style-2
     .float-wrapper

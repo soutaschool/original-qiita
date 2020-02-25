@@ -26,6 +26,7 @@
 #           confirm_content GET    /contents/:id/confirm(.:format)                                                          contents#confirm
 #         tag_field_content GET    /contents/:id/tag_field(.:format)                                                        contents#tag_field
 #        mile_stone_content GET    /contents/:id/mile_stone(.:format)                                                       contents#mile_stone
+#     edit_request_contents GET    /contents/edit_request(.:format)                                                         contents#edit_request
 #                  contents GET    /contents(.:format)                                                                      contents#index
 #                           POST   /contents(.:format)                                                                      contents#create
 #               new_content GET    /contents/new(.:format)                                                                  contents#new
@@ -66,6 +67,7 @@ Rails.application.routes.draw do
     get :confirm, on: :member 
     get :tag_field, on: :member 
     get :mile_stone, on: :member
+    get :edit_request, on: :collection
     #  collection = idがつかない
     #  member = idがつく
   end 

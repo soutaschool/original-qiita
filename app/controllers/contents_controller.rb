@@ -80,6 +80,12 @@ class ContentsController < ApplicationController
         @contents = Content.find(Favorite.group(:content_id).order('count(content_id) desc').limit(10).pluck(:content_id))
     end
 
+    def edit_request
+        @user = User.find(current_user.id)
+        @contents = @user.contents.page(params[:page]).reverse_order
+    end
+
+
     private
     def content_params
         params.require(:content).permit(:title, :tag, :body, :status, :image)
