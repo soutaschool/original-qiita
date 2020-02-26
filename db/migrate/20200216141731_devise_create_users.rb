@@ -32,7 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.string :name
+      t.string :name, default: "編集画面からあなたの名前を入力してください"
       t.string :profile_image_id
       t.string :last_name
       t.string :first_name
