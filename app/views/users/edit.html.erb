@@ -6,6 +6,7 @@
 </strong></h2>
 <h5><strong>名前</strong></h5>
 <%= bootstrap_form_for @user do |f| %>
+        <%= f.text_field :name, class: 'col-md-5 title2',placeholder: '表示名', aria_label: '表示名'  %>
         <%= f.text_field :first_name, class: 'col-md-5  title',placeholder: '名', aria_label: '名' %>
         <%= f.text_field :last_name, class: 'col-md-5 title',placeholder: '姓', aria_label: '姓' %> 
         <br> <br> <br>
