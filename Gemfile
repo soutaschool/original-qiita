@@ -109,3 +109,7 @@ gem 'coderay'
 
 # includeを使用するため
 gem 'bullet'
+
+# facebookのouath認証
+gem 'omniauth'
+gem 'omniauth-facebook'

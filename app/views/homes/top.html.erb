@@ -15,7 +15,8 @@
   <hr class="my-4">
   <p>ユーザ投稿型のナレッジコミュニティであり、ユーザはMarkdown形式で記事を投稿し、タグ付けなどを行うことができ、各記事にはブログのようなコメント機能が備え付けられているほか、編集リクエスト機能が存在しており、記事の誤りを他のユーザが指摘・修正することができます！！</p>
   <p class="lead" style='text-align: center;'>
-    <%= link_to '新規登録', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to '新規登録', new_user_registration_path, class: 'btn btn-warning btn-lg' %>
     <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-success btn-lg' %>
+    <%= link_to "facebook", user_facebook_omniauth_authorize_path, class: 'btn btn-info btn-lg'  %>
   </p>
 </div>

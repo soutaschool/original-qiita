@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
         # ユーザー名
          has_many :contents, dependent: :destroy
          has_many :comments, dependent: :destroy
@@ -10,10 +10,8 @@ class User < ApplicationRecord
         # ユーザーの写真を使用するもの
          attachment :profile_image
 
-          validates :name, presence: true
           validates :email, presence: true
           validates :password, length: { minimum: 6 }, on: :create
-          validates :password_confirmation, presence: true, on: :create
 
           acts_as_followable # フォロワー機能
           acts_as_follower   # フォロー機能
@@ -31,5 +29,20 @@ class User < ApplicationRecord
               )
               notification.save if notification.valid?
             end
+          end
+
+          # facebookのouath認証
+          def self.find_for_oauth(auth)
+            user = User.where(uid: auth.uid, provider: auth.provider).first
+        
+            unless user
+              user = User.create(
+                uid:      auth.uid,
+                provider: auth.provider,
+                email:    auth.info.email,
+                password: Devise.friendly_token[0, 20]
+              )
+            end
+            user
           end
 end
