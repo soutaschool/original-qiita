@@ -57,6 +57,13 @@ class UsersController < ApplicationController
     end
   #フォロワーの一覧ページ
 
+  # ユーザーのアカウントの削除
+    def destroy
+      @user = User.find(params[:id])
+      @user.destroy
+      redirect_to root_path
+    end
+
     private 
     def user_params
         params.require(:user).permit(:name, :first_name, :last_name, :profile_image,

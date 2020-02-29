@@ -41,8 +41,7 @@
             <li><%= link_to '下書き一覧(draft)', confirm_content_path(current_user) %></li>
             <li><%= link_to '編集リクエスト', edit_request_contents_path %></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">設定</a></li>
-            <li><a href="#">ヘルプ</a></li>
+            <li><%= link_to '設定', edit_user_path(current_user) %></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete,class: 'glyphicon glyphicon-log-out logout' %></li>
           </ul>
