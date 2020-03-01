@@ -9,7 +9,7 @@
         <%= f.select :status, Content.statuses.keys.map { |k| [t("enums.content.status.#{k}"),k]} %>
         <!--form.select :statusでstatusカラムをセレクトボックスで選択できるようにする-->
         <%= f.text_field :title, class: 'col-md-12 title',placeholder: 'タイトル', aria_label: 'タイトル' %>
-        <%= f.text_field :tag_list, value: @task.tag_list.join(','), class: 'col-md-12 title' , placeholder: 'プログラミング技術に関連するタグをスペース区切りで5つまで入力（例: Ruby Rails:4.2.0', aria_label: 'プログラミング技術に関連するタグをスペース区切りで5つまで入力（例: Ruby Rails:4.2.0' %>
+        <%= f.text_field :tag_list, value: @content.tag_list.join(','), class: 'col-md-12 title' , placeholder: 'プログラミング技術に関連するタグをスペース区切りで5つまで入力（例: Ruby Rails:4.2.0', aria_label: 'プログラミング技術に関連するタグをスペース区切りで5つまで入力（例: Ruby Rails:4.2.0' %>
         <%# valueを設定しているので複数のタグを作成することができるようになっている %>
     </div>
         <%= f.attachment_field :image, class: 'col-md-12 title', placeholder: '写真を送付', aria_label: '写真を送付' %>

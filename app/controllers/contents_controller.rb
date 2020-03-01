@@ -74,6 +74,10 @@ class ContentsController < ApplicationController
 
     def tag_field
         @contents = Content.published.order("created_at DESC").page(params[:page]).per(10)
+
+        if params[:tag_name]
+            @contents = Content.tagged_with("#{params[:tag_name]}")
+        end
     end
 
     def mile_stone

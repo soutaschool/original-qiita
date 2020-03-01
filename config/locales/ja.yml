@@ -6,7 +6,7 @@ ja:
     attributes:
       content:
         title: タイトル
-        tag: 関連するタグ
+        tag_list: 関連するタグ
         body: 本文
       user:
         name: 名前

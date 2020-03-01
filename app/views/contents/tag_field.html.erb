@@ -1,16 +1,16 @@
 <%= render 'left'%>
 <div class="col-md-7">
-<h5><span class="glyphicon glyphicon-check" aria-hidden="true"></span> トレンド<div style='color: #aaa;'>最近人気の記事を毎日5時/17時に更新</div></h5>
+<h5><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> タグフィールド<div style='color: #aaa;'>各記事の先頭にあるタグをクリックすると該当のタグに遷移</div></h5>
 <table class='table table-hover table-inverse'>
   <tbody>
     <% @contents.each do |content| %>
       <tr>
         <td>
+        <%= render 'contents/tag_list', tag_list: content.tag_list %> <br> <br>
         <%= link_to(content.user) do %>
          <%= attachment_image_tag(content.user, :profile_image, fallback: 'qiita.jpeg', size:'50x50') %>
          <% end %><%= link_to(content) do %> 
         <%= content.title %> (<%= time_ago_in_words(content.created_at) %>前)
-        <%= render 'contents/tag_list', tag_list: content.tag_list %>
         <% end %>
         <%= link_to(content.user) do %>
         <span style="color: #aaa;">by <%= content.user.name %></span>
