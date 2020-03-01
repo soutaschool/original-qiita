@@ -28,7 +28,7 @@
 <h1 style='border-bottom: 10px solid yellow; text-align: center;'><strong class="big-title">
 <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>   
 <%= @content.title %></strong></h1>
-<h2 style='text-align: center;'><span class="label label-default"><%= @content.tag %></span></h2>
+<h2 style='text-align: center;'><span class="label label-default"><%= @content.tag_list %></span></h2>
 <br> <br> <br> 
 <% if @content.image != nil %>
 <%= attachment_image_tag(@content, :image, fallback: 'qiita.jpeg', size:'656x437') %><br> <br> <br>

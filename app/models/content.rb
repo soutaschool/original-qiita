@@ -13,4 +13,7 @@ class Content < ApplicationRecord
     end
     # user.idがfavoriteに存在するかどうか
     attachment :image
+
+    # tagのgemようのモデル
+    acts_as_taggable
 end

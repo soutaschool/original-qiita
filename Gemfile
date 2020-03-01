@@ -117,3 +117,5 @@ gem 'bullet'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+# tag機能の実装
+gem 'acts-as-taggable-on', '~> 6.0'

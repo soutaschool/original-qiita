@@ -88,7 +88,7 @@ class ContentsController < ApplicationController
 
     private
     def content_params
-        params.require(:content).permit(:title, :tag, :body, :status, :image)
+        params.require(:content).permit(:title, :tag_list, :body, :status, :image)
     end
 
     def login_required
