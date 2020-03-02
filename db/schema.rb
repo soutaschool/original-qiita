@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2020_03_01_004305) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "name", default: "編集画面からあなたの名前を入力してください"
+    t.string "name", default: "名前を編集してください"
     t.string "profile_image_id"
     t.string "last_name"
     t.string "first_name"
